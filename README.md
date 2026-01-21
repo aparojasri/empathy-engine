@@ -36,7 +36,7 @@ To move beyond robotic delivery, we developed a mapping matrix that translates e
 
 ### **The Intensity Scaling Algorithm**
 
-The engine employs **Quadratic Intensity Scaling** to ensure that vocal shifts feel natural rather than binary. The base offsets are modulated by the classification confidence score:
+The engine employs **Quadratic Intensity Scaling** to ensure that vocal shifts feel natural rather than binary. The base offsets are modulated by the classification confidence score: $$Multiplier = 1.0 + (Confidence^{2})$$
 
 This ensures that a 99% confidence score in "Sadness" produces a significantly more "heavy-hearted" vocal shift than a 60% confidence score, mimicking natural human vocal intensity.
 
