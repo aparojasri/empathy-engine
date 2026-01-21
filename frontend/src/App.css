@@ -1,0 +1,247 @@
+/* 2026 DIAGNOSTIC ENGINE INTERFACE */
+
+:root {
+  --diagnostic-dark: #020408;
+  --glass-bg: rgba(2, 4, 8, 0.6);
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #1e293b;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--diagnostic-dark);
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: var(--diagnostic-dark);
+  overflow: hidden;
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-diagnostic-dark {
+  background-color: var(--diagnostic-dark);
+}
+
+/* GLASSMORPHISM 2.0 */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-color);
+}
+
+/* EMOTION GLOW CLASSES */
+.border-glow-joy {
+  border: 1px solid #f59e0b;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25), inset 0 0 12px rgba(245, 158, 11, 0.05);
+}
+
+.border-glow-sadness {
+  border: 1px solid #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25), inset 0 0 12px rgba(99, 102, 241, 0.05);
+}
+
+.border-glow-anger {
+  border: 1px solid #ef4444;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.25), inset 0 0 12px rgba(239, 68, 68, 0.05);
+}
+
+.border-glow-neutral {
+  border: 1px solid #94a3b8;
+  box-shadow: 0 0 20px rgba(148, 163, 184, 0.15), inset 0 0 12px rgba(148, 163, 184, 0.03);
+}
+
+.border-glow-fear {
+  border: 1px solid #a78bfa;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.25), inset 0 0 12px rgba(167, 139, 250, 0.05);
+}
+
+.border-glow-disgust {
+  border: 1px solid #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), inset 0 0 12px rgba(16, 185, 129, 0.05);
+}
+
+.border-glow-surprise {
+  border: 1px solid #ec4899;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.25), inset 0 0 12px rgba(236, 72, 153, 0.05);
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* TEXTAREA MONOSPACE */
+textarea {
+  font-family: 'Fira Code', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+textarea::placeholder {
+  color: #475569;
+  opacity: 0.7;
+}
+
+/* AUDIO PLAYER STYLING */
+audio {
+  width: 100%;
+  height: 40px;
+  filter: invert(10%) hue-rotate(190deg) brightness(1.2) saturate(1.1);
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-radius: 6px;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #e2e8f0 !important;
+  font-size: 11px !important;
+}
+
+/* FOCUS STATES */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #06b6d4;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.3), inset 0 0 8px rgba(6, 182, 212, 0.1);
+}
+
+/* BUTTON ANIMATIONS */
+button, a {
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* SMOOTH TRANSITIONS */
+* {
+  --tw-transition-property: all;
+  --tw-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --tw-transition-duration: 200ms;
+}
+
+/* GRID LAYOUT */
+.grid.grid-cols-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.col-span-7 {
+  grid-column: span 7 / span 7;
+}
+
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
+/* FOCUS WITHIN EFFECT */
+.glass-panel:focus-within {
+  border-color: rgba(6, 182, 212, 0.4) !important;
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.2);
+}
+
+/* AUDIO PLAYER CUSTOM */
+.audio-player {
+  accent-color: #06b6d4;
+}
+
+/* UTILITY CLASSES */
+.font-mono {
+  font-family: 'Fira Code', 'Monaco', 'Menlo', monospace;
+}
+
+.font-sans {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* OVERFLOW HANDLING */
+.overflow-y-auto {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* FLEX UTILITIES */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+/* POSITIONING */
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  inset: 0;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+
